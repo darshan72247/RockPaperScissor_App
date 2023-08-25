@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var computerPaperImageOption: UIImageView!
     @IBOutlet weak var computerScissorImageOption: UIImageView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -183,5 +184,24 @@ class ViewController: UIViewController {
             print("No option Selected")
         }
     }
+    
+    // Reset the score of the game and Update the Winner as per the score
+    @IBAction func resetAction(_ sender: Any) {
+        if (computerScoreCount > playerScoreCount){
+            winnerLabel.text = "Computer Won!"
+        } else if (playerScoreCount > computerScoreCount){
+            winnerLabel.text = "Player Won!"
+        } else {
+            winnerLabel.text = "DRAW!"
+        }
+        
+        computerScoreCount = 0
+        playerScoreCount = 0
+        
+        computerScoreLabel.text = String(computerScoreCount)
+        playerScoreLabel.text = String(playerScoreCount)
+        
+    }
+    
 }
 
